@@ -1,0 +1,14 @@
+project_name/
+├── docker-compose.yml
+├── db/
+│   ├── init.sql          // File inisialisasi database
+├── app/
+│   ├── main.go           // File utama aplikasi
+│   ├── go.mod            // Modul Go
+│   ├── go.sum            // Dependensi Go
+│   ├── handlers/         // Folder untuk handler
+│   │   ├── auth.go       // Berisi register dan login handler
+│   ├── models/           // Folder untuk model data
+│   │   ├── user.go       // Definisi model User
+│   ├── db/               // Folder untuk koneksi database
+│   │   ├── connection.go // Fungsi koneksi database

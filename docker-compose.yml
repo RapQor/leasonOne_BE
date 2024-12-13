@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: golang_app
+    command: ["go", "run", "main.go"]
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    volumes:
+      - ./db:/app/db
+
+  db:
+    image: mysql
+    container_name: mysql_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: apayak
+      MYSQL_DATABASE: leasonOne
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
